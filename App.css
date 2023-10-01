@@ -1,0 +1,96 @@
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+article {
+  width: 90vw;
+  margin: 0 auto;
+}
+
+.titleSection {
+  text-align: left;
+}
+
+.titleSection_Title {
+  margin-bottom: 0;
+  font-size: 150%;
+  color: #c69308;
+}
+
+.titleSection_Version {
+  margin-top: 0;
+}
+
+.ResultatenSection {
+  margin: 0;
+  margin-bottom: 10vh;
+}
+
+.ResultatenSection_Button {
+  padding: 10px;
+  margin-top: 0;
+  border-radius: 3px;
+  font-size: 100%;
+  color: white;
+  background-color: #c69308;
+  border: 1px black;
+}
+
+.ResultatenSection_Title {
+  margin-bottom: 3px;
+}
+
+.ResultatenSection_Resultaten {
+  margin: 0;
+}
+
+.wrapper {
+  width: 100%;
+  height: 300px;
+  overflow: scroll;
+  margin-right: 0px;
+  margin-bottom: 0px;
+}
+
+.backgroundIMG {
+  position: relative;
+  font-size: 0;
+  width: 960px;
+  height: 600px;
+  line-height: 0;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: cover;
+  background-image: url("../public/Images/mogelijk.png");
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  overflow: hidden;
+}
+
+.trace {
+  stroke: black;
+  stroke-width: 2.5px;
+}
+
+.transparent {
+  fill: transparent;
+}

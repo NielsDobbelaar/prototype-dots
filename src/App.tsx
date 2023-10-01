@@ -3,7 +3,7 @@ import "./App.css";
 import shapes from "./Data/shapes.ts";
 
 const App = () => {
-  const [correct, setCorrect] = useState<string[]>([]);
+  const [correct, setCorrect] = useState<string[][]>([]);
   const [startTime] = useState<number>(new Date().getTime());
   const [wastedClicks, setWastedClicks] = useState<number>(0);
   const [totalTime, setTotalTime] = useState<number>();
@@ -29,13 +29,13 @@ const App = () => {
     setFirstLaunch,
   ]);
 
-  const appartmentClicked = (poly: {
+  const appartmentClicked = (circle: {
     sold: boolean | null;
-    coords: string;
+    coords: string[];
   }) => {
-    if (poly.sold === false) {
-      if (!correct.includes(poly.coords)) {
-        setCorrect([...correct, poly.coords]);
+    if (circle.sold === false) {
+      if (!correct.includes(circle.coords)) {
+        setCorrect([...correct, circle.coords]);
         alert("Correct");
         return;
       } else {
@@ -46,7 +46,7 @@ const App = () => {
     alert("Deze is niet te koop");
   };
 
-  const getPolygonColor = (sold: boolean | null) => {
+  const getCircleColor = (sold: boolean | null) => {
     if (sold === false) {
       return "#00ff2a8b";
     }
@@ -85,14 +85,21 @@ const App = () => {
               viewBox="0 0 1920 1200"
               id="floormap"
             >
-              {shapes.polygons.map((poly) => {
+              {shapes.circles.map((circle) => {
                 return (
-                  <polygon
-                    key={poly.coords}
-                    onClick={() => appartmentClicked(poly)}
-                    points={poly.coords}
-                    className="trace"
-                    fill={getPolygonColor(poly.sold)}
+                  <circle
+                    cx={circle.coords[0]}
+                    cy={circle.coords[1]}
+                    r={10}
+                    key={circle.coords.join()}
+                    onClick={() => appartmentClicked(circle)}
+                    fill={
+                      circle.sold === false
+                        ? "#00ff2a8b"
+                        : circle.sold === null
+                        ? "#ff7b008a"
+                        : "#ff00008b"
+                    }
                   />
                 );
               })}
